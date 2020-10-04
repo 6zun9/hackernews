@@ -1,0 +1,25 @@
+.error-page {
+  height: 100vh;
+  width: 100%;
+  background-color:#e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .card {
+    padding: 100px 200px;
+    text-align: center;
+  }
+
+  @include e(details) {
+    margin: getSpacing('10x') auto;
+  }
+
+  @include e(img) {
+    max-width: 160px;
+  }
+
+  p {
+    max-width: 614px;
+  }
+}

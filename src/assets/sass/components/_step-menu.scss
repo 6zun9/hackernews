@@ -1,0 +1,91 @@
+.step-menu {
+  position: relative;
+  padding: getSpacing('0x') getSpacing('5x');
+  @include e(indicator) {
+    display: inline;
+    text-align: center;
+    @include getFontSize('body1');
+    color: getColor('grey.60');
+    font-weight: getFontWeight('semibold');
+    margin-bottom: getSpacing('4x');
+    z-index: 1;
+    position: relative;
+    background-color: $bg-color;
+    text-transform: uppercase;
+  }
+  @include e(nodes) {
+    pointer-events: none;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: getSpacing('8x') 0;
+    font-weight: getFontWeight('medium');
+    @include m(current) {
+      pointer-events: auto;
+      .step-menu {
+        @include e(label) {
+          color: getColor('grey.80');
+        }
+      }
+      .bullets {
+        border-color: getColor('primary.base');
+        background: getColor('primary.base');
+        color: getColor('white.base') !important;
+        &:before {
+          content: '';
+          height: 42px;
+          width: 42px;
+          background: getColor('white.base');
+          position: absolute;
+          border: 2px solid getColor('primary.base');
+          border-radius: 50%;
+          z-index: -1;
+        }
+      }
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 2px;
+      height: 100%;
+      background: getColor('grey.45');
+      top: 100%;
+      left: 15px;
+      z-index: -9;
+    }
+
+    @include m(completed) {
+      pointer-events: auto;
+      &:after {
+        background: getColor('primary.base');
+      }
+      .step-menu {
+        @include e(label) {
+          color: getColor('grey.80');
+        }
+      }
+      .bullets {
+        border-color: getColor('primary.base');
+        background: getColor('primary.base');
+        color: getColor('white.base') !important;
+      }
+    }
+
+    @include m(skipped) {
+      pointer-events: auto;
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+  @include e(label) {
+    color: getColor('grey.60');
+    font-weight: bold;
+    @include transition;
+  }
+}

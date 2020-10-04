@@ -1,0 +1,47 @@
+.alert {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: getSpacing("4x") getSpacing("3x");
+  border-radius: $default-border-radius;
+  border: 1px solid getColor("tertiary-blue.15");
+  background-color: getColor("tertiary-blue.10");
+  @include getFontSize("body1");
+  @include e(icon) {
+    margin-right: getSpacing("2x");
+    width: 20px;
+    color: getColor("primary.base");
+  }
+
+  @include e(label) {
+    color: getColor("tertiary-green.90");
+  }
+
+  @include e(details) {
+    color: getColor("grey.60");
+  }
+
+  @include m(danger) {
+    border-color: $error-color;
+    background-color: rgba(255, 86, 48, 0.05);
+
+    & .alert__label {
+      color: getColor("grey.70");
+    }
+
+    & .alert__icon {
+      width: 24px;
+      color: $error-color;
+    }
+
+    & .alert__details {
+      color: getColor("grey.70");
+    }
+  }
+
+  @each $name, $colorMap in $component-color-variants {
+    @include m(#{$name}) {
+      background-color: get("bg-color", $colorMap);
+      color: $white;
+    }
+  }
+}

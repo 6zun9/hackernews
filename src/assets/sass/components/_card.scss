@@ -1,0 +1,37 @@
+.card {
+  border-radius: $card-radius;
+  background-color: getColor("white.base");
+  @include m(elevated) {
+    box-shadow: $box-shadow;
+  }
+  @include m(bordered) {
+    border: 1px solid getColor("grey.15");
+  }
+  @include m(scrollable) {
+    overflow: auto;
+  }
+  @include m(full-height) {
+    height: 100%;
+  }
+
+  @include e(icon) {
+    width: 42px;
+    height: auto;
+    max-width: fit-content;
+  }
+
+  @include e(header) {
+    padding: getSpacing("3x") getSpacing("5x");
+    background-color: getColor("grey.30");
+  }
+
+  @include m(fixed) {
+    max-width: 390px;
+  }
+
+  @include e(footer) {
+    @include m(bg) {
+      background-color: getColor("tertiary-red.10");
+    }
+  }
+}

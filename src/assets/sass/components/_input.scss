@@ -1,0 +1,122 @@
+.lf-input-wrap {
+  margin-bottom: getSpacing("5x");
+}
+
+textarea{
+  &.lf-input{
+    min-height: 120px;
+    resize: none;;
+  }
+}
+
+.lf-input {
+  border: 1px solid getColor("grey.45");
+  border-radius: $input-border-radius;
+  padding: getSpacing("3x") getSpacing("3x");
+  width: 100%;
+  font-size: getFontSize("body1");
+  background-color: getColor("white.base");
+  color: getColor("grey.80");
+
+
+  @include e(word-count) {
+    @include getFontSize("small");
+    text-align: right;
+  }
+
+  &::placeholder {
+    font-size: getFontSize("body1");
+    color: getColor("grey.60");
+    text-transform: capitalize;
+  }
+  &:focus {
+    border-color: getColor("primary.base");
+    outline: none;
+  }
+
+  @include m(active) {
+    border-color: getColor("primary.base");
+  }
+
+
+  @include m(disabled) {
+    background-color: getColor("grey.25");
+    pointer-events: none;
+  }
+
+  @include m(error) {
+    border: 1px solid getColor("tertiary-red.60");
+  }
+
+  @include e(helper) {
+    color: getColor("grey.60");
+    font-size: getFontSize("small");
+    margin-top: getSpacing("1x");
+  }
+
+  @include e(label) {
+    display: block;
+    font-size: getFontSize("small");
+    line-height: 1.3;
+    color: getColor("grey.70");
+    font-weight: getFontWeight("medium");
+    margin-bottom: getSpacing("1x");
+    text-transform: capitalize;
+
+    @include m(required) {
+      color: getColor("tertiary-red.60");
+    }
+
+    @include m(error) {
+      color: $error-color;
+    }
+  }
+
+  @include e(clear) {
+    position: absolute;
+    right: 0;
+   
+  }
+
+  @include e(wrapper) {
+    display: flex;
+    position: relative;
+  }
+}
+
+
+.lf-upload{
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  padding: getSpacing("1x") getSpacing("1x") getSpacing("1x") getSpacing("2x");
+  position: relative;
+  cursor: pointer;
+  @include e(placeholder){
+    color: getColor("primary.base");
+    @include getFontSize("body1");
+    font-weight: getFontWeight("semibold");
+
+    @include m(completed) {
+      color: getColor("grey.60");
+      font-weight: getFontWeight("semibold");
+    }
+  }
+  @include e(value){
+    color: getColor("black.base");
+    @include getFontSize("small");
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  & input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}

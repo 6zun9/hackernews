@@ -1,0 +1,23 @@
+.comment {
+  margin-bottom: getSpacing("7x");
+  padding-left: getSpacing("5x");
+  border-left: 2px solid getColor("grey.40");
+  &:hover {
+    border-left-color: getColor("tertiary-green.40");
+  }
+
+  @include e(content) {
+    padding: getSpacing("4x");
+    border-radius: $default-border-radius;
+    background: getColor("tertiary-green.20");
+    margin-bottom: getSpacing("4x");
+    font-size: getFontSize('body1');
+    p {
+      line-height: 1.5;
+    }
+  }
+
+  @include e(details) {
+
+  }
+}

@@ -1,0 +1,98 @@
+.radio-container {
+  margin: 0 getSpacing("5x") getSpacing("5x") 0;
+  @include m(disabled) {
+    cursor: not-allowed;
+  }
+}
+
+.radio {
+  @include e(label) {
+    padding: getSpacing("3x") getSpacing("4x");
+    background-color: getColor("grey.5");
+    border-radius: $default-border-radius;
+    font-size: getFontSize("body2");
+    border: 1px solid getColor("grey.40");
+    text-transform: capitalize;
+    display: inline-flex;
+    position: relative;
+    color: getColor("grey.70");
+    outline: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+
+    @include m(disabled) {
+      background-color: getColor("grey.25");
+      color: getColor("grey.50");
+      border: 1px solid getColor("grey.40");
+      cursor: not-allowed;
+      pointer-events: none;
+      & .radio-container {
+        cursor: not-allowed;
+      }
+
+     &  span {
+        background-color: transparent !important;
+      }
+    }
+
+    @include m(active) {
+      background-color: getColor("tertiary-green.40");
+      border: 1px solid getColor("primary.base");
+      color: getColor("grey.70");
+    }
+  }
+
+  @include e(input) {
+    display: none;
+
+    + label {
+      font-weight: normal;
+      cursor: pointer;
+      
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: getSpacing("2x");
+        width: 18px;
+        height: 18px;
+        cursor:pointer;
+        border-radius: 50%;
+        position: relative;
+        border: 2px solid getColor("grey.40");
+        background-color: getColor("white.base");
+        
+        &::before {
+          content: "";        
+          opacity: 0;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: getColor("primary.base");
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);   
+          transition: opacity 0.2s ease-in-out;    
+        }
+      }
+    }
+
+    &:checked + label span {
+      border-color: getColor("primary.base");
+    }
+    &:checked + label span::before{
+      opacity: 1;
+    }
+    
+    &:disabled + label {
+     color: getColor("grey.50");
+     background: getColor("grey.25"); 
+     border: 1px solid getColor("grey.40");
+      &, span {
+        cursor: not-allowed; 
+      }
+    }
+  }
+}

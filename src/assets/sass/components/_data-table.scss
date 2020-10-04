@@ -1,0 +1,78 @@
+.data-table {
+  overflow: auto;
+  max-width: 800px;
+  table {
+    border-spacing: 0;
+
+    thead th {
+      background-color: getColor("tertiary-red.10");
+      font-weight: getFontWeight("semibold");
+      font-size: getFontSize("small");
+      color: getColor("grey.70");
+      text-align: left;
+      padding: getSpacing("2x") getSpacing("5x");
+      box-shadow: 0px 1px 0px getColor("grey.30");
+      border: 0;
+      min-width: 120px;
+    }
+
+    tbody {
+      td {
+        padding: getSpacing("3x") getSpacing("6x");
+        font-size: getFontSize("small");
+        color: getColor("grey.80");
+        text-align: left;
+        box-shadow: 0px 1px 0px getColor("grey.30");
+        border: 0;
+        min-width: 120px;
+      }
+      tr {
+        box-shadow: 0px 1px 0px getColor("grey.30");
+        border-bottom: 1px solid getColor("grey.30");
+        &:nth-child(even) {
+          background-color: getColor("grey.25");
+        }
+        &.highlight-row {
+          background-color: getColor("tertiary-green.30");
+        }
+      }
+    }
+  }
+
+  @include e(title) {
+    font-weight: getFontWeight("bold");
+    display: flex;
+    font-size: getHeaderFontSize("h5");
+    p {
+      color: getColor("grey.80");
+     }
+  }
+
+  @include e(helper-icon) {
+    color: getColor("grey.70");
+    width: 20px;
+    height: 20px;
+    margin: 0 getSpacing("4x") 0 getSpacing("2x");
+    cursor: pointer;
+    &:hover {
+      color: getColor("primary.base");
+    }
+  }
+
+  @include e(records-info) {
+    font-size: getFontSize("body1");
+  }
+
+  @include e(records-count) {
+    font-weight: getFontWeight("bold");
+    color: getColor("grey.80");
+    margin-right: getSpacing("1x");
+  }
+
+  @include e(story) {
+    margin: getSpacing("7x") 0 getSpacing("6x");
+    
+  }
+
+
+}

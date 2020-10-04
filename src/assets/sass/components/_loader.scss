@@ -1,0 +1,178 @@
+
+// $ball-size: 100px !default;
+// $margin: 2px !default;
+// $line-height: 35px !default;
+// $line-width: 4px !default;
+
+
+// $radius: 20px;
+
+
+
+// @mixin global-bg() {
+//   background-color: $primary-color;
+// }
+
+// @mixin global-animation() {
+//   animation-fill-mode: both;
+// }
+
+// @mixin balls() {
+//   @include global-bg();
+
+//   width: $ball-size;
+//   height: $ball-size;
+//   border-radius: 100%;
+//   margin: $margin;
+// }
+
+// @mixin lines() {
+//   @include global-bg();
+
+//   width: $line-width;
+//   height: $line-height;
+//   border-radius: 2px;
+//   margin: $margin;
+// }
+
+
+// @function delay($interval, $count, $index) {
+//   @return ($index * $interval) - ($interval * $count);
+// }
+
+
+
+
+// @keyframes line-spin-fade-loader {
+//   50% {
+//     opacity: 0.3;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+// @mixin line-spin-fade-loader($n:8, $start:1) {
+//   @for $i from $start through $n {
+//     > div:nth-child(#{$i}) {
+//       $iter: 360 / $n;
+//       $quarter: ($radius / 2) + ($radius / 5.5);
+
+//       @if $i == 1 {
+//         top: $radius;
+//         left: 0;
+//       } @else if $i == 2 {
+//         top: $quarter;
+//         left: $quarter;
+//         transform: rotate(-45deg);
+//       } @else if $i == 3 {
+//         top: 0;
+//         left: $radius;
+//         transform: rotate(90deg);
+//       } @else if $i == 4 {
+//         top: -$quarter;
+//         left: $quarter;
+//         transform: rotate(45deg);
+//       } @else if $i == 5 {
+//         top: -$radius;
+//         left: 0;
+//       } @else if $i == 6 {
+//         top: -$quarter;
+//         left: -$quarter;
+//         transform: rotate(-45deg);
+//       } @else if $i == 7 {
+//         top: 0;
+//         left: -$radius;
+//         transform: rotate(90deg);
+//       } @else if $i == 8 {
+//         top: $quarter;
+//         left: -$quarter;
+//         transform: rotate(45deg);
+//       }
+
+//       animation: line-spin-fade-loader 1.2s delay(0.12s, $n, $i) infinite ease-in-out;
+//     }
+//   }
+// }
+
+// .line-spin-fade-loader {
+//   @include line-spin-fade-loader();
+//   position: relative;
+//   top: 40px;
+//   left: 50%;
+//   > div {
+//     @include lines();
+//     @include global-animation();
+
+//     position: absolute;
+//     width: 5px;
+//     height: 15px;
+//   }
+// }
+
+
+.pulse-loader-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-loader {
+  width: 38px;
+  height: 38px;
+  background: getColor("secondary.base");
+  border-radius: 50%;
+  animation: inner 1s ease-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:before,&:after {
+    content: '';
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border: 2px solid getColor("secondary.base");
+  border-radius: 50%;
+  animation: pulse 1s ease-out infinite;
+  }
+}
+
+// .pulse-loader::before,
+// .pulse-loader::after{
+//   content: '';
+//   position: absolute;
+//   width: 62px;
+//   height: 62px;
+//   border: 2px solid getColor("secondary.base");
+//   border-radius: 50%;
+//   animation: pulse 1s ease-out infinite;
+// }
+
+
+@keyframes pulse {
+  from {
+    transform: scale(0);
+    filter: opacity(0.9);
+  }
+  to {
+    transform: scale(1);
+    filter: opacity(0.1);
+  }
+}
+
+@keyframes inner {
+  0% {
+    transform: scale(0);
+  }
+  
+  70% {
+    transform: scale(1);
+    filter: opacity(1);
+  }
+ 
+  100% {
+    transform: scale(1);
+    filter: opacity(0)
+  }
+}

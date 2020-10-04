@@ -1,0 +1,47 @@
+.list {
+  background-color: $white;
+  text-align: left;
+  min-width: 130px;
+  @include e(node){
+    display: block;
+    @include getFontSize("body1");
+    padding: getSpacing("2x") 0;
+    color: getColor("grey.80");
+  }
+  @include m(with-icon) {
+    padding: getSpacing('3x') getSpacing('2x');
+    li,a {
+      display: flex;
+      margin-bottom: getSpacing('5x');
+      cursor: pointer;
+      color: getColor('black.base');
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:hover {
+        & .list__title {
+          color: getColor('tertiary-red.5');
+        }
+      }
+    }
+
+  }
+  @include e(icon-wrapper) {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: getColor('tertiary-red.10');
+    border-radius: getSpacing('1x');
+    margin-right: getSpacing('4x');
+  }
+
+  @include e(icon) {
+    color: getColor('tertiary-red.5');
+    width: 24px;
+    height: 24px;
+  }
+
+ 
+}

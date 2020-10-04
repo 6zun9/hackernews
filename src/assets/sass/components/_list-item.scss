@@ -1,0 +1,41 @@
+.list {
+  @include e(item) {
+    display: flex;
+    padding: getSpacing('2x') getSpacing('4x');
+    background: getColor("white.base");
+    border-bottom: 1px solid getColor("grey.40");
+    // &:last-child {
+    //   border-bottom: 0;
+    // }
+  }
+
+  @include e(index) {
+    background-color: getColor("grey.70");
+    color: getColor("white.base");
+    font-size: getFontSize("body1");
+    font-weight: getFontWeight("semibold");
+    border-radius: $default-border-radius;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include e(info) {
+    color: getColor("grey.70");
+    font-size: getFontSize('body1');
+    display: flex;
+    align-items: center;
+
+    & .line {
+      width: 20px;
+      margin: 0 getSpacing("2x");
+      height: 1px;
+      background-color: getColor('grey.60');
+      display: inline-flex;
+    }
+  }
+  
+}
+ 

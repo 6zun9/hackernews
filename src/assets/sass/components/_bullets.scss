@@ -1,0 +1,19 @@
+.bullets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  font-weight: getFontWeight("bold");
+  position: relative;
+  @include getFontSize("body2");
+  @include transition;
+  background-color: $bg-color;
+  @each $name, $colorMap in $component-color-variants {
+    @include m(#{$name}) {
+      border: 2px solid get("bg-color", $colorMap);
+      color: getColor("grey.60");
+    }
+  }
+}

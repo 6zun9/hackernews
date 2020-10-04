@@ -1,0 +1,63 @@
+.lf-toast {
+  background-color: getColor("white.base");
+  color: getColor("white.base");
+  padding: getSpacing("5x") getSpacing("4x");
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 5px 5px 18px rgba(186, 186, 186, 0.44);
+  border: 1px solid getColor("grey.30");
+  border-radius: $default-border-radius;
+
+  @include m(danger) {
+    // background-color: getColor("tertiary-red.60");
+  }
+
+  @include m(warning) {
+    // background-color: getColor("tertiary-yellow.60");
+  }
+
+  @include e(content) {
+    margin-left: getSpacing("4x");
+    text-align: left;
+  }
+
+  @include e(icon) {
+    line-height: 0;
+  }
+
+  @include e(title) {
+    @include getFontSize("body2");
+    font-weight: getFontWeight("bold");
+    color: getColor("grey.80");
+    margin-bottom: getSpacing("1x");
+    text-transform: capitalize;
+    
+  }
+
+  @include e(message) {
+    @include getFontSize("small");
+    color: getColor("grey.70");
+  }
+
+  @include e(container) {
+    padding: 0;
+
+    & .Toastify__toast {
+      padding: 0;
+      border-radius: $default-border-radius;
+    }
+
+    & .lf-toast__progress-bar {
+      background: getColor("white.base");
+    }
+
+    & .Toastify__toast-body {
+      margin: 0;
+    }
+
+    & .Toastify__toast-container {
+      border-radius: $default-border-radius;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.ellipse-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ellipse {
+  height: 38px;
+  width: 38px;
+  border-radius: 100%;
+  @include getFontSize("small");
+  font-weight: getFontWeight("bold");
+  color: getColor("grey.20");
+  padding: getSpacing("1x");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: getColor("secondary.base");
+
+  @include m(red) {
+    border-color: getColor("tertiary-red.60");
+    background-color: transparentize(getColor("tertiary-red.60"), 0.8);
+  }
+
+ 
+  @include e(label) {
+    font-size: getFontSize("small");
+  }
+}

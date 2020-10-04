@@ -1,0 +1,27 @@
+.content-wrap {
+  margin: getSpacing("8x") 0;
+}
+
+.app-grid {
+  display: flex;
+  margin-bottom: getSpacing("8x");
+}
+
+.side-bar {
+  width: 260px;
+  margin-right: getSpacing("6x");
+}
+
+.center-content{
+  flex: 1;
+  width: 0%;
+}
+
+.right-sidebar {
+  width: 288px;
+  margin-left: getSpacing("6x");
+  margin-top: getSpacing("12x");
+  @include m(default) {
+    margin-top: 0;
+  }
+}

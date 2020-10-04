@@ -1,0 +1,102 @@
+.navbar {
+  background-color: getColor("white.base");
+  @include e(wrap) {
+    display: flex;
+    align-items: center;
+    height: $navbar-height;
+    @include m(content-spread) {
+      justify-content: space-between;
+    }
+  }
+  @include m(sticky) {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+  @include m(bordered-bottom) {
+    border-bottom: 1px solid getColor("tertiary-blue.5");
+  }
+  @include e(logo) {
+    width: 40px;
+    height: auto;
+    margin-right: getSpacing("4x");
+  }
+  @include e(left) {
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(help) {
+    cursor: pointer;
+    &:after {
+      content: '';
+      height: 1px;
+      width: 40px;
+      background: getColor("grey.40");
+      transform: rotate(90deg);
+      margin: 0 getSpacing("5x");
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  @include e(node) {
+    margin: 0 getSpacing("4x");
+    cursor: pointer;
+  }
+  @include e(link) {
+    color: getColor("orange.20");
+    @include getFontSize("body2");
+    font-weight: getFontWeight("semibold");
+    position: relative;
+
+    // @include m(active) {
+    //   &:after {
+    //     position: absolute;
+    //     content: "";
+    //     width: 100%;
+    //     height: 4px;
+    //     left: 0;
+    //     bottom: -25px;
+    //     background: getColor("primary.base");
+    //   }
+    // }
+
+    @include m(secondary) {
+      &:after {
+        display: none;
+      }
+    }
+    // &:hover {
+    //    color: getColor("grey.80");
+    //   &:after {
+    //     position: absolute;
+    //     content: "";
+    //     width: 100%;
+    //     height: 4px;
+    //     left: 0;
+    //     bottom: -25px;
+    //     background: getColor("primary.base");
+    //   }
+    // }
+  }
+}
+.secondary-nav {
+  background-color: white;
+  @include e(wrap) {
+    height: 55px;
+    display: flex;
+    align-items: center;
+  }
+  @include e(nodes) {
+    margin: {
+      top: getSpacing("2x");
+      bottom: getSpacing("2x");
+      right: getSpacing("3x");
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

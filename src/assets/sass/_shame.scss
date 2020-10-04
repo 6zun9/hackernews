@@ -1,0 +1,45 @@
+// ==========================================================================
+// Shame
+// If any code was written hastily to meet deadlines or in a hackish way then those
+// codes should be written in _shame.scss. Documentation of hack codes is encouraged.
+// Cleaning up the code in _shame.scss should be done at spare time. Find out whose code it is by
+// using: $ git blame _shame.scss
+// ==========================================================================
+
+.dropzone-root {
+  border: 2px dashed grey;
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 150px;
+}
+
+.dropzone-label {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  position: relative;
+  top: 45px;
+}
+
+.dropzone-label span {
+  position: relative;
+  bottom: 6px;
+  margin-left: 5px;
+}
+
+.file-container {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.file-info {
+  color: #737373;
+}
+
+
+.highcharts-root {
+  font-family: $font-primary !important;
+}

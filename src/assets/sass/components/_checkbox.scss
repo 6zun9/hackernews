@@ -1,0 +1,97 @@
+.checkbox-container {
+  @include m(disabled) {
+    cursor: not-allowed;
+  }
+}
+.checkbox {
+  
+
+  @include e(input) {
+    position: absolute; 
+    opacity: 0; 
+
+    & + label {
+      position: relative;
+    }
+
+    // Box.
+    & + label:before {
+      content: '';
+      margin-right: getSpacing("2x");
+      background: getColor("white.base");
+      border: 2px solid getColor("grey.40");
+      box-sizing: border-box;
+      border-radius: 4px;
+      height: 18px;
+      width: 18px;
+      position: relative;
+
+    }
+
+    // Box checked
+    &:checked + label:before {
+      background: getColor("primary.base");
+      border: 0;
+    }
+
+    &:checked + label {
+      background-color: getColor('tertiary-green.40');
+      border: 1px solid getColor('primary.base');
+      color: getColor('grey.70');
+    }
+
+
+    // Checkmark. Could be replaced with an image
+    &:checked + label:after {
+      content: '';
+      height: 8px;
+      width: 4px;
+      border: solid getColor("white.base");
+      position: absolute;
+      border-width: 0 2px 2px 0;
+      top: 2px;
+      left: 6px;
+      cursor: pointer;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      top: 16px;
+      left: 22px;
+    }
+  }
+
+  @include e(label) {
+    padding: getSpacing('3x') getSpacing('4x');
+    background-color: getColor('grey.25');
+    border-radius: $default-border-radius;
+    font-size: getFontSize('body2');
+    border: 1px solid getColor('grey.40');
+    margin: 0 getSpacing('5x') getSpacing('5x') 0;
+    text-transform: capitalize;
+    display: inline-flex;
+    align-items: center;
+    color: getColor('grey.70');
+    outline: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+
+    @include m(disabled) {
+      background-color: getColor('grey.25');
+      color: getColor('grey.50');
+      border: 1px solid getColor('grey.40');
+      cursor: not-allowed;
+      pointer-events: none;
+      &:before {
+        background-color: transparent !important;
+      }
+    }
+
+    @include m(active) {
+      background-color: getColor('tertiary-green.40');
+      border: 1px solid getColor('primary.base');
+      color: getColor('grey.70');
+    }
+  }
+}

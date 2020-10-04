@@ -1,0 +1,24 @@
+.preloader {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+@include e(icon) {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation: fade 2s infinite;
+  }
+}
+
+@keyframes fade {
+  50% {
+  opacity: 0.4;
+  }
+
+  
+  100% {
+    opacity: 1;
+  }
+}

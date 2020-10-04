@@ -1,0 +1,128 @@
+.lf-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  background-color: getColor("white.base");
+  min-width: 646px;
+  width: 80%;
+  border-radius: getSpacing("2x");
+  border: 0;
+  outline: none;
+  display: flex;
+  max-height: 90vh;
+
+  @include e(overlay) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparentize(getColor("grey.70"), 0.3);
+    z-index: 99;
+  }
+
+  @include e(header) {
+    padding: getSpacing("5x");
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    @include m(border) {
+      border-bottom: 1px solid getColor("grey.40");
+    }
+  }
+
+  @include e(title) {
+    @include getFontSize("body2");
+    color: getColor("grey.90");
+    font-weight: getFontWeight("semibold");
+    width: 100%;
+    
+
+    @include m(info) {
+      color: getColor("secondary.base");
+    }
+
+    @include m(danger) {
+      color: getColor("tertiary-red.60");
+    }
+  }
+
+  @include e(body) {
+    padding: 0 getSpacing("5x") getSpacing("5x");
+    max-height: calc(100vh - 150px);
+    color: getColor("grey.70");
+    overflow-y: auto;
+  }
+
+  @include e(info) {
+    font-size: getFontSize("body1");
+    line-height: 1.25;
+    color: getColor("grey.60");
+
+    @include m(danger) {
+      color: getColor("tertiary-red.60");
+      margin-bottom: getSpacing("3x");
+    }
+  }
+
+  @include e(footer) {
+    padding: getSpacing("5x");
+    display: flex;
+    justify-content: flex-end;
+
+    @include m(border) {
+      border-top: 1px solid getColor("grey.15");
+    }
+  }
+
+  @include e(close-icon) {
+    color: getColor("grey.90");
+    cursor: pointer;
+  }
+
+  @include e(status-icon) {
+    padding: getSpacing("5x") 0 getSpacing("5x") getSpacing("5x");
+
+    @include m(danger) {
+      color: getColor("tertiary-red.60");
+    }
+
+    @include m(info) {
+      color: getColor("secondary.base");
+    }
+  }
+
+  @include e(content-wrapper) {
+    width: 100%;
+  }
+}
+
+div {
+  &.SingleDatePicker_picker {
+    z-index: 99;
+  }
+  & .DateInput_input {
+    border: 1px solid getColor("grey.20");
+    border-radius: 2px;
+    padding: getSpacing("2x") getSpacing("3x");
+    width: 100%;
+    font-size: getFontSize("body1");
+    background-color: getColor("white.base");
+    color: getColor("grey.80");
+    font-weight: normal;
+    line-height: normal;
+    &::placeholder {
+      font-size: getFontSize("body1");
+      color: getColor("grey.40");
+      text-transform: capitalize;
+      font-weight: normal;
+    }
+    &:focus {
+      border: 1px solid getColor("tertiary-blue.60");
+    }
+  }
+}

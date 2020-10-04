@@ -1,0 +1,52 @@
+.score-card {
+  padding: getSpacing("7x");
+  background-color: getColor("grey.25");
+  border: 1px solid getColor("grey.30");
+  border-radius: $input-border-radius;
+  display: flex;
+  max-width: 934px;
+
+  @include e(help) {
+    display: flex;
+    align-items: center;
+    color: getColor("grey.60");
+    font-size: getFontSize("tiny");
+    font-weight: getFontWeight("semibold");
+    &:hover {
+      color: getColor("primary.base");
+    }
+  }
+
+  @include e(share-btn) {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    color: getColor("grey.70");
+    &:hover {
+      cursor: pointer;
+      background-color: getColor("grey.30");
+      color: getColor("primary.base");
+      border: 1px solid getColor("grey.45");
+    }
+  }
+
+  @include e(help-icon) {
+    width: 18px;
+  }
+  
+  & .donut-chart__title {
+    font-weight: getFontWeight("bold");
+    font-size: getSpacing("11x");
+    font-family: $font-primary;
+  }
+
+  & .donut-chart__title-sup {
+    font-weight: getFontWeight("bold");
+    font-size: getFontSize("body2");
+    top: -1.0em;
+  }
+
+}
